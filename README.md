@@ -15,8 +15,7 @@ of models.
 ## What's a partial?
 
 A partial is a view which you can use in other views. Here's what
-[the Rails documentation][rails-partials] Have to say
-about them.
+[the Rails documentation][rails-partials] have to say about them.
 
 For example, say `hello.html.erb` looks like this:
 
@@ -54,10 +53,15 @@ We'll have access to the variable `planet` within `_planet.html.erb`:
 This naming scheme is another Rails convention. Passing in `object` to a partial named `planet` will
 set the `planet` local variable.
 
+You might be getting the sense that this is designed to make it easy to provide a default representation
+for a model. And you would be right. The idea is that if you create a file named `_planet.html.erb`, and it
+handles drawing a single `Planet`, Rails will make your views very terse. We'll see more of this when we use
+partials for collections.
+
 You can pass in arguments with whatever names you like using `locals`:
 
   ```
-  <h1>hello, <%= render 'planet', object: Planet::Earth, locals: {stardate: '43989.1', distance: 1000} %>
+  <h1>hello, <%= render 'planet', object: Planet::Earth, locals: {stardate: 43989.1, distance: 1000} %>
   ```
 
 Which then show up as local variables in `_planet.html.erb`:
@@ -74,7 +78,7 @@ of models:
   ```
   <ol>
     <% @planets.each do |planet| %>
-      <%= render 'planet', object: planet %>
+      <%= render 'planet', object: planet, locals: {stardate: 43989.1} %>
     <% end %>
   </ol>
   ```
@@ -85,7 +89,7 @@ There's a shorthand for this:
 
    ```
    <ol>
-     <%= render partial: 'planet', collection: @planets %>
+     <%= render partial: 'planet', collection: @planets, locals: {stardate: 43989.1}%>
    </ol>
    ```
 
@@ -93,7 +97,7 @@ And, Rails being Rails, there's a shorthand for this shorthand:
 
    ```
    <ol>
-     <%= render @planets %>
+     <%= render @planets, stardate: 43989.1 %>
    </ol>
    ```
 
