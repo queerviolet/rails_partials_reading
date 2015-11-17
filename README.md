@@ -1,36 +1,3 @@
-
-What you’re teaching
-
-For this assignment, you’ll be teach Partials in Rails. Here are our Objectives. We frame all objectives as if you were saying the sentence "After completing this lesson, students will be able to …”. We call them the SWBATs. Here are yours:
-
-(optional)Know which folder to put a partial if it doesn’t directly apply to the controller they are working in
-(optional)Use (and know when to use) a partial from a different controller
-What you’re delivering
-
-To accomplish teaching these goals we need two things: a reading repo and a lab repo. Readings are pretty straight forward. Create a new github repo and drop in a README.md and write everything in there. For example checkout this, this, this and this.
-
-You’ll also have to create a lab. A Lab consists of:
-
-A README.md describing the instructions (feel free to be terse…we don’t want to give them all the answers!)
-A test suite
-Starter code
-A solution in the solution branch
-Checkout examples here, here and here
-
-Assumptions you can make
-
-Students are very comfortable in ruby
-Students are comfortable in rspec, but a bit shaky in Capybara (if you use it)
-Students know era basics
-Students know the request cycle, MVC, ActiveRecord, Models really well and Controllers kinda well.
-Students don’t know anything about JS
-Feel free to document your assumptions of knowledge if you have any extras!
-
-
-
----
-
-
 # Partial Views in Rails
 
 # Overview
@@ -53,12 +20,15 @@ about them.
 
 For example, say `hello.html.erb` looks like this:
 
-   ```<h1>hello, <%= render 'planet' %>.</h1>```
+   ```
+   <h1>hello, <%= render 'planet' %>.</h1>
+   ```
 
-When it encounters `<%= render 'planet' %>`, Rails will run the view in `_planet.html.erb`,
-which looks like this:
+When it encounters `<%= render 'planet' %>`, Rails will run the view in `_planet.html.erb`:
 
-```<b>earth</b>```
+   ```
+   <b>earth</b>
+   ```
 
 ...and insert it into the results.
 
