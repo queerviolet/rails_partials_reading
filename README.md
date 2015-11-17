@@ -41,45 +41,61 @@ conventions.
 You can pass arguments into partials, just like you can pass arguments into methods.
 If we edit `hello.html.erb`:
 
-   ```<h1>hello, <%= render 'planet', object: Planet::Earth %></h1>```
+   ```
+   <h1>hello, <%= render 'planet', object: Planet::Earth %></h1>
+   ```
 
 We'll have access to the variable `planet` within `_planet.html.erb`:
 
-   ```<b><%= planet.name %></b>```
+   ```
+   <b><%= planet.name %></b>
+   ```
 
 This naming scheme is another Rails convention. Passing in `object` to a partial named `planet` will
 set the `planet` local variable.
 
 You can pass in arguments with whatever names you like using `locals`:
 
-  ```<h1>hello, <%= render 'planet', object: Planet::Earth, locals: {stardate: '43989.1', distance: 1000} %>```
+  ```
+  <h1>hello, <%= render 'planet', object: Planet::Earth, locals: {stardate: '43989.1', distance: 1000} %>
+  ```
 
 Which then show up as local variables in `_planet.html.erb`:
 
-  ```<b><%= planet.name %></b>, <%= distance %> kilometers away. Today is <%= stardate %>.```
+  ```
+  <b><%= planet.name %></b>, <%= distance %> kilometers away. Today is <%= stardate %>.
+  ```
 
 ## Collections
 
 A great and very common use for partials is to simplify view code that displays a collection
 of models:
 
-  ```<ol>
-       <% @planets.each do |planet| %>
-         <%= render 'planet', object: planet %>
-       <% end %>
-     </ol>```
+  ```
+  <ol>
+    <% @planets.each do |planet| %>
+      <%= render 'planet', object: planet %>
+    <% end %>
+  </ol>
+  ```
 
 This way you can reuse the `planet` partial across the list and show views.
 
 There's a shorthand for this:
 
-   ```<ol>
-        <%= render partial: 'planet', collection: @planets %>
-      </ol>```
+   ```
+   <ol>
+     <%= render partial: 'planet', collection: @planets %>
+   </ol>
+   ```
 
 And, Rails being Rails, there's a shorthand for this shorthand:
 
-   ```<ol><%= render @planets %></ol>```
+   ```
+   <ol>
+     <%= render @planets %>
+   </ol>
+   ```
 
 ## Further Reading
 
