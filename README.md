@@ -14,10 +14,7 @@ of models.
 
 ## What's a partial?
 
-A partial is a view which you can use in other views. Here's what
-[the Rails documentation][rails-partials] have to say about them.
-
-For example, say `hello.html.erb` looks like this:
+A partial is a view which you can use in other views. For example, say `hello.html.erb` looks like this:
 
    ```
    <h1>hello, <%= render 'planet' %>.</h1>
